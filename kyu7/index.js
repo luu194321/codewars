@@ -30,69 +30,28 @@ function getCount(str) {
   return answer;
 }
 */
+/*
+// Mumbling
 
-// Dbftbs Djqifs
+// This time no story, no theory. The examples below show you how to write function accum:
+// Examples:
+// accum("abcd") -> "A-Bb-Ccc-Dddd"
+// accum("RqaEzty") -> "R-Qq-Aaa-Eeee-Zzzzz-Tttttt-Yyyyyyy"
+// accum("cwAt") -> "C-Ww-Aaa-Tttt"
+// The parameter of accum is a string which includes only letters from a..z and A..Z.
+function accum(s) {
+  const array = s.split("");
+  const answer = array.map((el, i, arr) => {
+    const lowerCase = el.toLowerCase();
+    const upperCase = el.toUpperCase();
+    const padCount = i;
+    const paddedEl = lowerCase.padEnd(padCount, lowerCase);
 
-function encryptor (key, message) {
-  let newIndex;
-  let answer='';
-  // check for negative key
-  let alphabetArray = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 
-                         'h', 'i', 'j', 'k', 'l', 'm', 'n', 
-                         'o', 'p', 'q', 'r', 's', 't', 'u', 
-                         'v', 'w', 'x', 'y', 'z'];
-  
-  const lowercaseRegExp = /[a-z]/
-  const uppercaseRegExp = /[A-Z]/
-  
-  // const exceedingIndex = arr[i] === undefined?
+    while (i === 0) return upperCase;
 
-  //capital/lowercase
-  // index exceeds length: pos/neg(2)
-  // key: pos/neg(2) ---> exceeding index
-    
-  const msg = message.forEach((el,i,arr)=>{
-    if(el === ' ') return answer+= el;
+    return el === upperCase ? el + paddedEl : upperCase + paddedEl;
+  });
 
-    //-----check for capital----
-    if(el.match(uppercaseRegExp)!== null && key>alphabetArray.length){
-      //---capital and exceeding index
-      if (arr[el+key] === undefined)
-      
-      //capital and key>alphabet.length
-      if (key>alphabetArray.length){
-        newIndex= key%alphabetArray.length
-        return answer+= alphabetArray[i+newIndex].toUpperCase();
-      } else if (key>0 && key<alphabetArray.length){
-        return answer+= alphabetArray[i+]
-      }
-      //capital and negative
-      
-      if (key<0 && key>-25){
-        
-        alphabetArray = alphabetArray.reverse()
-        return answer+= alphabetArray[]
-      }
-      
-      return answer+= alphabetArray[]
-  
-      
-      
-    }
-    
-    // check for key higher than alphabet
-    if (key>alphabetArray.length)newIndex= key%alphabetArray.length
-    
-    if(key<0)
-    // check for lower case
-  
-    if (el.match(lowercaseRegExp)!== null){
-      
-      
-    }
-    
-  })
-    
-  
-    return '';
-  }
+  return answer.join("-");
+}
+*/

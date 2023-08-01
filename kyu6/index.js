@@ -34,7 +34,6 @@ function findOdd(A) {
 
 //------------------------------------------------------------------//
 
-
 /*
 // Array.diff 20 min
 // Your goal in this kata is to implement a difference function, which subtracts one list from another and returns the result.
@@ -72,7 +71,6 @@ function spinWords(string){
 }
 */
 
-
 //------------------------------------------------------------------//
 /*
 // our order, please
@@ -98,3 +96,132 @@ function order(words){
     return answer.join(' ')
   }
   */
+
+// Dbftbs Djqifs
+// Caesar Ciphers are one of the most basic forms of encryption. It consists of a message and a key, and it shifts the letters of the message for the value of the key.
+
+// Read more about it here: https://en.wikipedia.org/wiki/Caesar_cipher
+
+// Your task is to create a function encryptor that takes 2 arguments - key and message - and returns the encrypted message.
+// Make sure to only shift letters, and be sure to keep the cases of the letters the same. All punctuation, numbers, spaces, and so on should remain the same.
+// Also be aware of keys greater than 26 and less than -26. There's only 26 letters in the alphabet!
+// Examples:A message 'Caesar Cipher' and a key of 1 returns 'Dbftbs Djqifs'.A message 'Caesar Cipher' and a key of -1 returns 'Bzdrzq Bhogdq'.
+
+function encryptor(key, message) {
+  if (message === "") return "";
+  if (key === 0) return "no cypher";
+
+  let answer = "";
+  // check for negative key
+  const lowercaseRegExp = /[a-z]/;
+  const uppercaseRegExp = /[A-Z]/;
+  // const exceedingIndex = arr[i] === undefined?
+  //capital/lowercase
+  // index exceeds length: pos/neg(2)
+  // key: pos/neg(2) ---> exceeding index
+
+  const msg =message.split('').forEach((el, i, arr) => {
+    const upperCase=el.toUpperCase();
+    const lowerCase = el.toLowerCase();
+    const currentIndex = alphabetArray.indexOf(lowerCase);
+    const newIndex = key % i;
+    const reversedAlphabetArray = alphabetArray.reverse();
+    // const ans = alphabetArray.indexOf(alphabetArray.indexOf(el) + key)
+    if (el === " ") return (answer += el);
+    /////////////////CAPITAL/////////////////////////
+    
+    if (el.match(uppercaseRegExp)!== null) {
+      const newLetterPos = alphabetArray[currentIndex+key];
+
+      if(alphabetArray[currentIndex+key] !== undefined){
+        answer+=newLetterPos
+      }
+      if (alphabetArray.indexOf(lowerCase+key)===undefined){
+        const ans = alphabetArray.indexOf(alphabetArray.indexOf(el) + key);
+        answer+=ans
+
+      }
+    }
+    //-----CAPITAL and POS key
+
+  });
+
+  return console.log(answer);
+}
+
+console.log("hello");
+
+// if (el.match(uppercaseRegExp) !== null && key > 0) {
+//   //---capital and exceeding index
+//   if (alphabetArray[i + key] === undefined) {
+//     answer += alphabetArray[newIndex].toUpperCase();
+//   } else {
+//     return (answer += alphabetArray[i + key]);
+//   }
+// }
+
+// //----CAPITAL and NEG key
+// if (el.match(uppercaseRegExp) !== null && key < 0) {
+//   if (alphabetArray[i + key] === undefined) {
+//     answer += reversedAlphabetArray[i + newIndex].toUpperCase();
+//   } else {
+//     return (answer += reversedAlphabetArray[i + key]);
+//   }
+// }
+
+// /////////////////LOWERCASE/////////////////////////
+
+// if (key > 0) {
+//   if (alphabetArray[i + key] === undefined) {
+//     answer += alphabetArray[newIndex].toUpperCase();
+//   } else {
+//     return (answer += alphabetArray[i + key]);
+//   }
+// }
+
+// if (key < 0) {
+//   if (alphabetArray[i + key] === undefined) {
+//     answer += reversedAlphabetArray[i + newIndex];
+//   } else {
+//     return (answer += reversedAlphabetArray[i + key]);
+//   }
+// }
+
+function encryptor (key, message) {
+  if (message === "") return '';
+  if(key===0)return 'no cypher'
+  
+  let index;
+  let answer='';
+  // check for lower case
+  const alphabetArray = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 
+                         'h', 'i', 'j', 'k', 'l', 'm', 'n', 
+                         'o', 'p', 'q', 'r', 's', 't', 'u', 
+                         'v', 'w', 'x', 'y', 'z'];
+  
+  const lowercaseRegExp = /[a-z]/
+  const uppercaseRegExp = /[A-Z]/;
+  const msg = message.split('').forEach((el, i, arr) => {
+      const upperCase=el.toUpperCase();
+      const lowerCase = el.toLowerCase();
+      const newIndex = key % i;
+      const currentIndex = alphabetArray.indexOf(lowerCase)
+  //     const reversedAlphabetArray = alphabetArray.reverse();
+      if (el === " ") return (answer += el);
+      /////////////////CAPITAL/////////////////////////
+        if (el.match(uppercaseRegExp)!== null) {
+        console.log('el:',el,'----','curI:',currentIndex +key)
+        console.log(alphabetArray[currentIndex+key])
+  //       if (alphabetArray.indexOf(lowerCase+key)===undefined){
+  //         const ans = alphabetArray.indexOf(alphabetArray.indexOf(el) + key);
+  //         console.log('answer:',i,ans)
+  //         answer+=ans
+  
+        
+      }
+      //-----CAPITAL and POS key
+  
+    });
+  
+    return '';
+  }
