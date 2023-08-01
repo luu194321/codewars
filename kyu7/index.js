@@ -55,3 +55,11 @@ function accum(s) {
   return answer.join("-");
 }
 */
+
+
+
+function descendingOrder(n){
+  if(n.length === 1) return Number(n)
+    const array = n.toString().split('').map(Number).sort((a,b)=>b-a).join('')
+
+return +array}
