@@ -56,10 +56,28 @@ function accum(s) {
 }
 */
 
+// Descending Order
 
-
+/*
 function descendingOrder(n){
   if(n.length === 1) return Number(n)
     const array = n.toString().split('').map(Number).sort((a,b)=>b-a).join('')
+  return +array
+}
+*/
+// makeBackronym
 
-return +array}
+var makeBackronym = function (string) {
+  let answer = "";
+  string = string.split("").forEach((el, i, arr) => {
+    el = el.toUpperCase();
+
+    if (i === arr.length - 1) {
+      return (answer += dict[el]);
+    } else {
+      return (answer += `${dict[el]} `);
+    }
+  });
+
+  return answer;
+};
